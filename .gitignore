@@ -2,6 +2,8 @@
 
 node_modules/
 
-# remainder-js/.gitignore
+*.gitignore
 
 .git/
+
+backup/
