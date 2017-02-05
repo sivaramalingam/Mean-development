@@ -1,0 +1,24 @@
+{
+  "name": "raminder",
+  "version": "1.0.0",
+  "description": "Remainder application developed in Node JS web server, Angular JS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Node",
+    "JS",
+    "Angular",
+    "JS",
+    "Remainder",
+    "apps"
+  ],
+  "author": "Sivaramalingam R",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1",
+    "serve-static": "^1.11.2"
+  }
+}
