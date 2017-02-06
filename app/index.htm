@@ -8,27 +8,60 @@
     <script type="text/javascript" src="assets/scripts/angular.min.js"></script>
   </head>
   <body>
-    <div class="wrapper" ng-app="remainder">
-      <h1>Welcome</h1>
-      <div class="remainder-log">
-        <p>Login details</p>
-        <form name="remainder-loign" >
-          <div class="input-fields">
-            <div class="input-1 inputs">
-              <span>Email/Phone:</span><input type="text" name="idname" class="text-box" value="" placeholder="Please enter your Email/Phone">
+    <main>
+      <div class="wrapper" ng-app="remainder">
+        <h1>Welcome</h1>
+        <section class="remainder-log" style="display:none;" ng-controller="login">
+          <p>Login details</p>
+          <form name="remainder-loign" >
+            <div class="input-fields">
+              <div class="input-1 inputs">
+                <span>Email/Phone:</span><input type="text" name="idname" class="text-box" value="" placeholder="Please enter your Email/Phone">
+              </div>
+              <div class="input-2 inputs">
+                <span>Password:</span><input type="password" name="password" value="" class="text-box" placeholder="Please enter your Password">
+              </div>
+              <div class="input-3 inputs">
+                <span>&nbsp;</span>
+                <button type="submit" name="submit-button" class="btn submit" value="sign in">Sign in</button>
+                <button type="submit" name="signup" class="btn signup" value="sign in">Sign Up</button>
+              </div>
             </div>
-            <div class="input-1 inputs">
-              <span>Password:</span><input type="password" name="password" value="" class="text-box" placeholder="Please enter your Password">
-            </div>
-            <div class="input-1 inputs">
-              <span>&nbsp;</span>
-              <button type="submit" name="submit-button" class="btn submit" value="sign in">Sign in</button>
-              <button type="submit" name="signup" class="btn signup" value="sign in">Sign Up</button>
-            </div>
+          </form>
+        </section>
+        <section class="remainder-register" ng-controller="registeration">
+          <p>Registeration Form</p>
+          <div class="form-elements">
+            <form class="" name="remainderreg" novalidate ng-submit="submitForm(remainderreg.$valid)">
+              <div class="input-fields">
+                <div class="inputs">
+                  <span>First Name:</span><input type="text" name="fname" value="" ng-model="fname" ng-required="true" class="text-box" placeholder="Enter your first name">
+                  {{!remainderreg.fname.$invalid+"||"+ !remainderreg.fname.$pristine}}
+                  <p class="err-msg" ng-show="remainderreg.fname.$invalid && remainderreg.fname.$pristine" ng-hide="!(remainderreg.fname.$pristine)">Your First name is required</p>
+                </div>
+                <div class="inputs">
+                  <span>Lastname:</span><input type="text" name="lname" value="" class="text-box" ng-model="lname" ng-required="true" placeholder="Enter your Last name">
+                  <p class="err-msg" ng-show="remainderreg.lname.$invalid && remainderreg.lname.$pristine">Your last name is required</p>
+                </div>
+                <div class="inputs">
+                  <span>Age:</span><input type="text" name="age" value="" class="text-box" ng-model="age" ng-required="true" placeholder="Enter your age">
+                  <p class="err-msg" ng-show="remainderreg.age.$invalid && remainderreg.age.$pristine">Your Age is required</p>
+                </div>
+                <div class="inputs">
+                  <span>Address:</span><input type="text" name="address" value="" class="text-box" ng-model="address" ng-required="true" placeholder="Enter your address">
+                  <p class="err-msg" ng-show="remainderreg.address.$invalid && remainderreg.address.$pristine">Your address  is required</p>
+                </div>
+                <div class="inputs">
+                  <!-- <button type="submit" name="register" class="btn register" ng-disabled="remainderreg.$invalid" value="">Register</button> -->
+                  <button type="submit" name="register" class="btn register" value="">Register</button>
+                  <button type="submit" name="reset" class="btn reset" value="">Reset</button>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
+        </section>
       </div>
-    </div>
+    </main>
     <script type="text/javascript" src="assets/scripts/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="assets/scripts/script.js"></script>
   </body>

@@ -54,7 +54,7 @@ h1{
   font: bold 40px/44px "arial";
   text-align: center;
 }
-.remainder-log{
+.remainder-log, .remainder-register{
   width: 600px;
   margin: 50px auto;
   text-align: center;
@@ -92,4 +92,8 @@ h1{
 }
 .input-fields .btn:hover{
   opacity: 0.6;
+}
+p.err-msg{
+	color: #f00;
+	margin: 5px 0px;
 }

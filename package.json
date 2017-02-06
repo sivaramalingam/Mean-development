@@ -20,6 +20,7 @@
   "dependencies": {
     "express": "^4.14.1",
     "mongo": "^0.1.0",
+    "mongodb": "^2.2.22",
     "serve-static": "^1.11.2"
   }
 }
