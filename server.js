@@ -1,9 +1,16 @@
-var connect = require('connect');
-var serveStatic = require('serve-static');
-var path = require('path')
-var app = connect();
 
-app.use(serveStatic(__dirname+'/app/')).listen(9090, function(){
-      console.log(path.resolve(__dirname+'/app/'));
-    console.log('Server running on 9090...');
-});
+var express = require('express'),
+    app = express(),
+    serveStatic = require('serve-static');
+
+    app.use(serveStatic(__dirname+"/app"), function(){
+      console.log("Node server running at 9000");
+    });
+    app.listen('9000');
+
+var databaseUrl = "sampledb",
+    collections = ["register"],
+    db = require("mongo");
+    db.connect(databaseUrl, collections, function(){
+      console.log("db connected!!!")
+    });

@@ -1,0 +1,9 @@
+# Untracked files
+
+node_modules/
+
+*.gitignore
+
+.git/
+
+backup/
