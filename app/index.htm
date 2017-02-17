@@ -35,31 +35,54 @@
             <form class="" name="remainderreg" novalidate ng-submit="submitForm(remainderreg.$valid)">
               <div class="input-fields">
                 <div class="inputs">
+                  <span>Username:</span><input type="text" name="uname" value="" ng-model="uname" ng-required="true" class="text-box" placeholder="Enter your Username">
+                  <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.uname.$touched)&& remainderreg.uname.$error.required && !focused" >User name is required</p>
+                </div>
+                <div class="inputs">
+                  <span>Password:</span><input type="password" name="pwd" value="" ng-model="pwd" ng-required="true" class="text-box" placeholder="Enter your Password">
+                  <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.pwd.$touched)&& remainderreg.pwd.$error.required && !focused" >Password is required</p>
+                </div>
+                <div class="inputs">
+                  <span>Confirm Password:</span><input type="password" name="cpwd" value="" ng-model="cpwd" ng-required="true" class="text-box" placeholder="Enter your Confirm password">
+                  <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.cpwd.$touched)&& remainderreg.cpwd.$error.required && !focused" >Confirm Password is required</p>
+                </div>
+                <div class="inputs">
                   <span>First Name:</span><input type="text" name="fname" value="" ng-model="fname" ng-required="true" class="text-box" placeholder="Enter your first name">
-                  {{!remainderreg.fname.$invalid+"||"+ !remainderreg.fname.$pristine}}
-                  <p class="err-msg" ng-show="remainderreg.fname.$invalid && remainderreg.fname.$pristine" ng-hide="!(remainderreg.fname.$pristine)">Your First name is required</p>
+                  <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.fname.$touched)&& remainderreg.fname.$error.required && !focused" >Your First name is required</p>
                 </div>
                 <div class="inputs">
                   <span>Lastname:</span><input type="text" name="lname" value="" class="text-box" ng-model="lname" ng-required="true" placeholder="Enter your Last name">
-                  <p class="err-msg" ng-show="remainderreg.lname.$invalid && remainderreg.lname.$pristine">Your last name is required</p>
+                  <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.lname.$touched) && remainderreg.lname.$error.required && !focused">Your last name is required</p>
                 </div>
                 <div class="inputs">
                   <span>Age:</span><input type="text" name="age" value="" class="text-box" ng-model="age" ng-required="true" placeholder="Enter your age">
-                  <p class="err-msg" ng-show="remainderreg.age.$invalid && remainderreg.age.$pristine">Your Age is required</p>
+                  <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.age.$touched) && remainderreg.age.$error.required && !focused">Your Age is required</p>
                 </div>
                 <div class="inputs">
                   <span>Address:</span><input type="text" name="address" value="" class="text-box" ng-model="address" ng-required="true" placeholder="Enter your address">
-                  <p class="err-msg" ng-show="remainderreg.address.$invalid && remainderreg.address.$pristine">Your address  is required</p>
+                  <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.address.$touched) && remainderreg.address.$error.required && !focused">Your address  is required</p>
                 </div>
                 <div class="inputs">
                   <!-- <button type="submit" name="register" class="btn register" ng-disabled="remainderreg.$invalid" value="">Register</button> -->
-                  <button type="submit" name="register" class="btn register" value="">Register</button>
+                  <button type="submit" name="register" class="btn register" value="" ng-disabled="remainderreg.$invalid">Register</button>
                   <button type="submit" name="reset" class="btn reset" value="">Reset</button>
                 </div>
               </div>
             </form>
           </div>
         </section>
+
+        <div class="movies" ng-controller="moviesController">
+          <input type="text" name="movietitle" value="" ng-model="city">
+          <div class="" ng-city ng-model="city">
+
+          </div>
+          <div ng-repeat='movie in movies' class="">
+            <h1 movie-name title="{{movie}}">Movie name: {{movie}}</h1>
+          </div>
+            <br/>
+        </div>
+
       </div>
     </main>
     <script type="text/javascript" src="assets/scripts/jquery-1.11.0.min.js"></script>
