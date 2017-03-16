@@ -1,0 +1,82 @@
+{
+  "employee details": [
+    {
+      "id": "emp001",
+      "name": "xxx1",
+      "city": "chennai",
+      "designation": "developer"
+    },
+    {
+      "id": "emp002",
+      "name": "xxx2",
+      "city": "virudhunagar",
+      "designation": "senior developer"
+    },
+    {
+      "id": "emp003",
+      "name": "xxx3",
+      "city": "chennai",
+      "designation": "admin"
+    },
+    {
+      "id": "emp004",
+      "name": "xxx4",
+      "city": "chennai",
+      "designation": "senior developer"
+    },
+    {
+      "id": "emp005",
+      "name": "xxx5",
+      "city": "chennai",
+      "designation": "Manager"
+    },
+    {
+      "id": "emp006",
+      "name": "xxx6",
+      "city": "Madurai",
+      "designation": "developer"
+    },
+    {
+      "id": "emp007",
+      "name": "xxx7",
+      "city": "trichy",
+      "designation": "admin"
+    },
+    {
+      "id": "emp008",
+      "name": "xxx8",
+      "city": "Madurai",
+      "designation": "HR"
+    },
+    {
+      "id": "emp009",
+      "name": "xxx9",
+      "city": "chennai",
+      "designation": "senior developer"
+    },
+    {
+      "id": "emp0010",
+      "name": "xxx10",
+      "city": "trichy",
+      "designation": "Manager"
+    },
+    {
+      "id": "emp0011",
+      "name": "xxx11",
+      "city": "Madurai",
+      "designation": "developer"
+    },
+    {
+      "id": "emp0012",
+      "name": "xxx12",
+      "city": "trichy",
+      "designation": "senior developer"
+    },
+    {
+      "id": "emp0013",
+      "name": "xxx13",
+      "city": "Madurai",
+      "designation": "CEO"
+    }
+  ]
+}

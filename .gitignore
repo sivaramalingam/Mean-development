@@ -3,6 +3,8 @@
 node_modules/
 
 *.gitignore
+*data-search.js
+*data-search.htm
 
 .git/
 

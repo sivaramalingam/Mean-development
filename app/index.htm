@@ -6,84 +6,28 @@
     <title></title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <script type="text/javascript" src="assets/scripts/angular.min.js"></script>
+    <script type="text/javascript" src="assets/scripts/angular-route.min.js"></script>
+    <script type="text/javascript" src="assets/scripts/angular-locale_da-dk.js"></script>
   </head>
   <body>
-    <main>
-      <div class="wrapper" ng-app="remainder">
+    <main data-ng-app="remainder">
+      <!-- <div class="wrapper" ng-app="remainder">
         <h1>Welcome</h1>
-        <section class="remainder-log" style="display:none;" ng-controller="login">
-          <p>Login details</p>
-          <form name="remainder-loign" >
-            <div class="input-fields">
-              <div class="input-1 inputs">
-                <span>Email/Phone:</span><input type="text" name="idname" class="text-box" value="" placeholder="Please enter your Email/Phone">
-              </div>
-              <div class="input-2 inputs">
-                <span>Password:</span><input type="password" name="password" value="" class="text-box" placeholder="Please enter your Password">
-              </div>
-              <div class="input-3 inputs">
-                <span>&nbsp;</span>
-                <button type="submit" name="submit-button" class="btn submit" value="sign in">Sign in</button>
-                <button type="submit" name="signup" class="btn signup" value="sign in">Sign Up</button>
-              </div>
-            </div>
-          </form>
-        </section>
-        <section class="remainder-register" ng-controller="registeration">
-          <p>Registeration Form</p>
-          <div class="form-elements">
-            <form class="" name="remainderreg" novalidate ng-submit="submitForm(remainderreg.$valid)">
-              <div class="input-fields">
-                <div class="inputs">
-                  <span>Username:</span><input type="text" name="uname" value="" ng-model="uname" ng-required="true" class="text-box" placeholder="Enter your Username">
-                  <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.uname.$touched)&& remainderreg.uname.$error.required && !focused" >User name is required</p>
-                </div>
-                <div class="inputs">
-                  <span>Password:</span><input type="password" name="pwd" value="" ng-model="pwd" ng-required="true" class="text-box" placeholder="Enter your Password">
-                  <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.pwd.$touched)&& remainderreg.pwd.$error.required && !focused" >Password is required</p>
-                </div>
-                <div class="inputs">
-                  <span>Confirm Password:</span><input type="password" name="cpwd" value="" ng-model="cpwd" ng-required="true" class="text-box" placeholder="Enter your Confirm password">
-                  <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.cpwd.$touched)&& remainderreg.cpwd.$error.required && !focused" >Confirm Password is required</p>
-                </div>
-                <div class="inputs">
-                  <span>First Name:</span><input type="text" name="fname" value="" ng-model="fname" ng-required="true" class="text-box" placeholder="Enter your first name">
-                  <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.fname.$touched)&& remainderreg.fname.$error.required && !focused" >Your First name is required</p>
-                </div>
-                <div class="inputs">
-                  <span>Lastname:</span><input type="text" name="lname" value="" class="text-box" ng-model="lname" ng-required="true" placeholder="Enter your Last name">
-                  <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.lname.$touched) && remainderreg.lname.$error.required && !focused">Your last name is required</p>
-                </div>
-                <div class="inputs">
-                  <span>Age:</span><input type="text" name="age" value="" class="text-box" ng-model="age" ng-required="true" placeholder="Enter your age">
-                  <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.age.$touched) && remainderreg.age.$error.required && !focused">Your Age is required</p>
-                </div>
-                <div class="inputs">
-                  <span>Address:</span><input type="text" name="address" value="" class="text-box" ng-model="address" ng-required="true" placeholder="Enter your address">
-                  <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.address.$touched) && remainderreg.address.$error.required && !focused">Your address  is required</p>
-                </div>
-                <div class="inputs">
-                  <!-- <button type="submit" name="register" class="btn register" ng-disabled="remainderreg.$invalid" value="">Register</button> -->
-                  <button type="submit" name="register" class="btn register" value="" ng-disabled="remainderreg.$invalid">Register</button>
-                  <button type="submit" name="reset" class="btn reset" value="">Reset</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </section>
-
         <div class="movies" ng-controller="moviesController">
           <input type="text" name="movietitle" value="" ng-model="city">
           <div class="" ng-city ng-model="city">
-
           </div>
           <div ng-repeat='movie in movies' class="">
             <h1 movie-name title="{{movie}}">Movie name: {{movie}}</h1>
           </div>
             <br/>
         </div>
-
+      </div> -->
+      <div class="remainder-app" data-ng-show="visible" data-ng-controller="remainderController">
+        <p>Already registered user Please click here.</p><a href="#/login">Login</a>
+        <p>New user Please click here.</p><a href="#/register">Register</a>
       </div>
+      <div ng-view></div>
     </main>
     <script type="text/javascript" src="assets/scripts/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="assets/scripts/script.js"></script>

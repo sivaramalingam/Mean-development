@@ -1,0 +1,46 @@
+
+<section class="remainder-register" ng-controller="registerationController">
+  <p>Registeration Form</p>
+  <div class="form-elements">
+    <form class="" name="remainderreg" novalidate ng-submit="submitForm(remainderreg.$valid)">
+      <div class="input-fields">
+        <div class="inputs">
+          <span>Username:</span><input type="text" name="uname" value="" ng-model="uname" ng-required="true" class="text-box" placeholder="Enter your Username">
+          <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.uname.$touched)&& remainderreg.uname.$error.required && !focused" >User name is required</p>
+        </div>
+        <div class="inputs">
+          <span>Password:</span><input type="password" name="pwd" value="" ng-model="pwd" ng-required="true" class="text-box" placeholder="Enter your Password">
+          <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.pwd.$touched)&& remainderreg.pwd.$error.required && !focused" >Password is required</p>
+        </div>
+        <div class="inputs">
+          <span>Confirm Password:</span><input type="password" name="cpwd" value="" ng-model="cpwd" ng-required="true" class="text-box" placeholder="Enter your Confirm password">
+          <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.cpwd.$touched)&& remainderreg.cpwd.$error.required && !focused" >Confirm Password is required</p>
+        </div>
+        <div class="inputs">
+          <span>First Name:</span><input type="text" name="fname" value="" ng-model="fname" ng-required="true" class="text-box" placeholder="Enter your first name">
+          <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.fname.$touched)&& remainderreg.fname.$error.required && !focused" >Your First name is required</p>
+        </div>
+        <div class="inputs">
+          <span>Lastname:</span><input type="text" name="lname" value="" class="text-box" ng-model="lname" ng-required="true" placeholder="Enter your Last name">
+          <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.lname.$touched) && remainderreg.lname.$error.required && !focused">Your last name is required</p>
+        </div>
+        <div class="inputs">
+          <span>Age:</span><input type="text" name="age" value="" class="text-box" ng-model="age" ng-required="true" placeholder="Enter your age">
+          <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.age.$touched) && remainderreg.age.$error.required && !focused">Your Age is required</p>
+        </div>
+        <div class="inputs">
+          <span>Address:</span><input type="text" name="address" value="" class="text-box" ng-model="address" ng-required="true" placeholder="Enter your address">
+          <p class="err-msg" ng-show="(remainderreg.$submitted || remainderreg.address.$touched) && remainderreg.address.$error.required && !focused">Your address  is required</p>
+        </div>
+        <div class="inputs">
+          <!-- <button type="submit" name="register" class="btn register" ng-disabled="remainderreg.$invalid" value="">Register</button> -->
+          <button type="submit" name="register" class="btn register" value="" ng-disabled="remainderreg.$invalid">Register</button>
+          <button type="submit" name="reset" class="btn reset" value="">Reset</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <p> "hello service calling:"{{helloServ}} </p>
+  <p> "Sum value from service"{{sumServ}} </p>
+  <h4>"Factory name:"{{firstfact}}</h4>
+</section>
