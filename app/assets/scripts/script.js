@@ -14,7 +14,7 @@
             reload: true
           }).
           otherwise({
-            redirectTo: "index.htm"
+            redirectTo: "/home"
           });
       }]);
 
@@ -24,18 +24,37 @@
       });
 
       //login controller
-      remainderApp.controller("loginController", function($scope, $rootScope){
+      remainderApp.controller("loginController", function($scope, $rootScope, b2homeService){
         $rootScope.visible = false;
         $scope.msg = "Hi, Welcome to login page, please give your username and password below."
+        $scope.go = function(path){
+          b2homeService.go(path);
+        }
+        $scope.loginSubmit = function(isValid){
+          if(isValid){
+            console.log($scope.loginform)
+            alert("logged successfully");
+            $scope.loginform = {};
+            $scope.remainderLogin.$setUntouched();
+          }else{
+            angular.forEach('remainderLogin', function(err){
+              console.log(err)
+            })
+          }
+        }
       });
 
       // register controller
-      remainderApp.controller("registerationController", function($scope, $rootScope){
+      remainderApp.controller("registerationController", function($scope, $rootScope, b2homeService){
         $rootScope.visible = false;
 
         $scope.submitForm = function(isValid){
           if(isValid)
             console.log("form submitted successfully!!")
+        }
+
+        $scope.go = function(path){
+          b2homeService.go(path);
         }
         // $scope.helloServ = firstService.helloService();
         // $scope.sumServ = firstService.sumService();
@@ -50,6 +69,15 @@
         //   alert();
         // }
       });
+
+      //b2home service
+      remainderApp.service("b2homeService", function($location, $rootScope){
+        this.go = function(path){
+          $rootScope.visible = true;
+          $location.path(path);
+          return;
+        }
+      })
 
       remainderApp.controller("moviesController", function($scope){
         $scope.movies = ["XXX", "YYY", "ZZZ", "WWW"];

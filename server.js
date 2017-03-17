@@ -6,10 +6,43 @@ var express = require('express'),
 var databaseUrl = "mongodb://localhost:27017/remainder",
     collections = ["register"],
     mongo = require("mongodb"),
+    mongoose = require("mongoose")
     mongoServer = mongo.Server,
     mongoDb = mongo.Db,
     serverd = new mongoServer("localhost",27017,{auto_reconnect: true}),
-    db = new mongoDb('remainder', serverd);
+    db = new mongoDb('remainder', serverd),
+    schema = mongoose.Schema,
+    //create schema
+    userSchema = new schema({
+      name: String,
+      username: {type: String, required: true, unique: true},
+      password: {type: String, required: true},
+      location: String,
+      created_at: Date,
+      updated_at: Date
+    });
+
+    var loginUser = mongoose.model('user-details', userSchema);
+
+    module.exports = loginUser;
+
+    var users = new loginUser({
+      name: "Siva",
+      username: "siva001",
+      password: "abcd$12345",
+      location: 'Chennai',
+      created_at: '17-06-2016',
+      updated_at: '17-06-2016'
+    })
+
+    users.save(function(err){
+      if(err) throw err;
+
+      console.log("Data saved successfully!!!")
+    })
+
+
+
     db.open(function(err, db){
       if(!err){
         console.log('Mongo db connected!!!');
@@ -36,11 +69,12 @@ var databaseUrl = "mongodb://localhost:27017/remainder",
           //     console.log(data)
           //   });
           // });
+
       }
     });
 
-    // mongo.connect(databaseUrl, collections, function(err, dbn){
-    // });
+    mongo.connect(databaseUrl, collections, function(err, dbn){
+    });
 
     app.use(serveStatic(__dirname+"/app")).listen(9000, function(){
       console.log("Node server running at 9000");

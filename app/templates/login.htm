@@ -1,18 +1,24 @@
-<section class="remainder-log" ng-controller="loginController">
+
+
+<section class="remainder-log">
   {{msg}}
   <p>Login details</p>
-  <form name="remainder-loign" >
+  <form name="remainderLogin" novalidate data-ng-submit=loginSubmit(remainderLogin.$valid)>
     <div class="input-fields">
       <div class="input-1 inputs">
-        <span>Email/Phone:</span><input type="text" name="idname" class="text-box" value="" placeholder="Please enter your Email/Phone">
+        <span>Email/Phone:</span><input type="email" name="idname" class="text-box" value="" placeholder="Please enter your Email/Phone" data-ng-required="true" data-ng-model="loginform.idname">
+        <p class="err-msg" data-ng-show ="(remainderLogin.$submitted || remainderLogin.loginform.idname.$touched) && remainderLogin.loginform.idname.$error.required && !focused">Please give your name/Email</p>
+        <p class="err-msg" data-ng-show ="(remainderLogin.$submitted || remainderLogin.loginform.idname.$touched) && remainderLogin.$error.email && !focused">Please give valid email address</p>
       </div>
       <div class="input-2 inputs">
-        <span>Password:</span><input type="password" name="password" value="" class="text-box" placeholder="Please enter your Password">
+        <span>Password:</span><input type="password" name="password" value="" class="text-box" placeholder="Please enter your Password" data-ng-required="true" data-ng-model="loginform.password">
+        <p class="err-msg" data-ng-show ="(remainderLogin.$submitted || remainderLogin.loginform.password.$touched) && remainderLogin.loginform.password.$error.required && !focused">Please enter your password</p>
       </div>
       <div class="input-3 inputs">
         <span>&nbsp;</span>
-        <button type="submit" name="submit-button" class="btn submit" value="sign in">Sign in</button>
-        <button type="submit" name="signup" class="btn signup" value="sign in">Sign Up</button>
+        <button name="btohome" class="btn btohome" value="Back to Home" data-ng-click="go('/home')">Back</button>
+        <button type="submit" name="submit-button" class="btn submit" value="sign in" data-ng-disabled="remainderLogin.$invalid">Sign in</button>
+        <button type="submit" name="signup" class="btn signup" value="sign Up">Sign Up</button>
       </div>
     </div>
   </form>

@@ -1,5 +1,5 @@
 
-<section class="remainder-register" ng-controller="registerationController">
+<section class="remainder-register">
   <p>Registeration Form</p>
   <div class="form-elements">
     <form class="" name="remainderreg" novalidate ng-submit="submitForm(remainderreg.$valid)">
@@ -34,6 +34,7 @@
         </div>
         <div class="inputs">
           <!-- <button type="submit" name="register" class="btn register" ng-disabled="remainderreg.$invalid" value="">Register</button> -->
+          <button name="btohome" class="btn btohome" value="Back to Home" data-ng-click="go('/home')">Back</button>
           <button type="submit" name="register" class="btn register" value="" ng-disabled="remainderreg.$invalid">Register</button>
           <button type="submit" name="reset" class="btn reset" value="">Reset</button>
         </div>
