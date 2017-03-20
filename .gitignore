@@ -5,6 +5,7 @@ node_modules/
 *.gitignore
 *data-search.js
 *data-search.htm
+*server-copy_200317.js
 
 .git/
 
