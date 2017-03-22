@@ -1,47 +1,21 @@
-
 var express = require('express'),
-    app = express(),
-    serveStatic = require('serve-static');
+  app = express(),
+  port = process.env.PORT || 9000,
+  mongoose = require('mongoose'),
+  remainder = require('./app/api/models/remainderModel'),
+  bodyParser = require('body-parser'),
+  serveStatic = require('serve-static');
 
-var mongoose = require('mongoose'),
-    dataUrl = "mongodb://localhost:27017/remainder",
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost:27017/remainder');
 
-    schema = mongoose.Schema,
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-    userSchema = new schema({
-      name: String,
-      location: {type: String, unique: true},
-      username: {type: String, unique:true, required: true},
-      password: {type: String, required: true},
-      created_at: Date,
-      updated_at: Date
-    }),
+var routes = require('./app/api/routes/remainderRoutes');
+routes(app);
 
-    users = mongoose.model('registeration', userSchema),
+app.use(serveStatic(__dirname+"/app")).listen(port, function(){
 
-    firstUser = new users({
-      name: 'siva2',
-      location: 'madurai',
-      username: 'siva2',
-      password: "abcd$1234"
-    });
-
-    // module.exports = users;
-    mongoose.connect(dataUrl, function(err){
-      if(err)
-        console.log(err)
-      else {
-        console.log("DB connected successfully!!!")
-      }
-    });
-
-    firstUser.save(function(err) {
-      if (err) throw err;
-
-      console.log('User saved successfully!');
-    });
-
-
-    app.use(serveStatic(__dirname+"/app")).listen(9000, function(){
-      console.log("Node server running at 9000");
-    });
+  console.log('Remainder app server running on: ' + port);
+});

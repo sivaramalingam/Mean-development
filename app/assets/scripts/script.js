@@ -1,3 +1,4 @@
+'use strict';
 (function(){
   var remainderApp = angular.module("remainder", ['ngRoute']);
       //Routes
@@ -24,7 +25,7 @@
       });
 
       //login controller
-      remainderApp.controller("loginController", function($scope, $rootScope, b2homeService){
+      remainderApp.controller("loginController", function($scope, $rootScope, b2homeService, $http){
         $rootScope.visible = false;
         $scope.msg = "Hi, Welcome to login page, please give your username and password below."
         $scope.go = function(path){
@@ -32,6 +33,7 @@
         }
         $scope.loginSubmit = function(isValid){
           if(isValid){
+            $http.get("/api/")
             console.log($scope.loginform)
             alert("logged successfully");
             $scope.loginform = {};
